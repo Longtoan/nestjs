@@ -1,6 +1,6 @@
 import * as mongoose from 'mongoose';
-
-export const StudentSchema = new mongoose.Schema({
+const schema = mongoose.Schema
+export const StudentSchema = new schema({
   FirstName: {
     type: String,
     required: true
@@ -10,19 +10,20 @@ export const StudentSchema = new mongoose.Schema({
     required: true
   },
   Age: {
-    type: Number,
+    type: String,
     required: true
   },
   Sex: {
     type: String,
     required: true
-  }
+  },
+  score:[{type:schema.Types.ObjectId, ref:'scores'}]
 });
 
-export interface Student extends mongoose.Document {
+export interface StudentSchema extends mongoose.Document {
   id: String;
   FirstName: String;
   LastName: String;
-  Age: Number;
+  Age: String;
   Sex: String;
 }

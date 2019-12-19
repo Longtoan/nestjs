@@ -1,21 +1,29 @@
-import { Controller, Post, Body } from '@nestjs/common';
+import { Controller, Post, Body,Get } from '@nestjs/common';
 import { StudentService } from './student.service';
-Controller('student');
+@Controller('student')
 export class StudentController {
   constructor(private readonly StudentService: StudentService) {}
+
   @Post()
-  addStudent(
+  async addStudent(
     @Body('FirstName') prodFirstName: string,
     @Body('LastName') prodLastName: string,
-    @Body('Age') prodAge: number,
+    @Body('Age') prodAge: string,
     @Body('Sex') prodSex: string
   ) {
-    const generateId = this.StudentService.insertStudent(
+    const generateId = await this.StudentService.insertStudent(
       prodFirstName,
       prodLastName,
       prodAge,
       prodSex
     );
-    return generateId;
+    return {id:generateId};
   }
+  @Get()
+  getStudent(){
+    const student = this.StudentService.getStudent();
+    return student
+  }
+  
+  
 }
