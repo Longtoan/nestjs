@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, Res } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 
 import { Model } from 'mongoose';
@@ -25,7 +25,11 @@ export class StudentService {
     const result = await newStudent.save();
     return result.id as string;
   }
-  getStudent() {
-    return this.StudentModel.find().exec()
+  getAllStudent() {
+    return this.StudentModel.find()
+      .populate('scores')
+      .exec();
   }
+  
 }
+  

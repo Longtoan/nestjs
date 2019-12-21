@@ -1,17 +1,21 @@
-import { Controller, Post, Body } from '@nestjs/common';
+import { Controller, Post, Body, Get} from '@nestjs/common';
 import { ScoresService } from './scores.service';
 @Controller('scores')
 export class ScoresController {
   constructor(private readonly ScoresSer: ScoresService) {}
   @Post()
-  addScores(
-    @Body('mon') prodMon: number,
-    @Body('xeploai') prodxeploai: string
+  async addScores(
+    @Body('author') prodA: string,
+    @Body('Toan') prodToan: number,
+    @Body('Ly') prodLy: number,
+    @Body('Hoa') prodHoa: number
   ) {
-      const generateId = this.ScoresSer.addScore(
-          prodMon,
-          prodxeploai
-      )
-      return generateId
+    const generateId = await this.ScoresSer.addScore(prodA,prodToan, prodLy, prodHoa);
+    return generateId;
+  }
+  @Get()
+  GetScore(){
+    const score = this.ScoresSer.GetScore()
+    return score
   }
 }

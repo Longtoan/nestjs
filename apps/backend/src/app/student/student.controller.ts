@@ -1,4 +1,4 @@
-import { Controller, Post, Body,Get } from '@nestjs/common';
+import { Controller, Post, Body, Get, Res, HttpStatus ,Param} from '@nestjs/common';
 import { StudentService } from './student.service';
 @Controller('student')
 export class StudentController {
@@ -6,24 +6,27 @@ export class StudentController {
 
   @Post()
   async addStudent(
+    @Res() res,
     @Body('FirstName') prodFirstName: string,
     @Body('LastName') prodLastName: string,
     @Body('Age') prodAge: string,
     @Body('Sex') prodSex: string
   ) {
-    const generateId = await this.StudentService.insertStudent(
+    const newStudent = await this.StudentService.insertStudent(
       prodFirstName,
       prodLastName,
       prodAge,
       prodSex
     );
-    return {id:generateId};
+    return res.status(HttpStatus.OK).json({
+      message: 'succes',
+      post: newStudent
+    });
   }
   @Get()
-  getStudent(){
-    const student = this.StudentService.getStudent();
-    return student
+  getAllStudent() {
+    const student = this.StudentService.getAllStudent();
+    return student;
   }
-  
   
 }
