@@ -10,13 +10,15 @@ export class StudentController {
     @Body('FirstName') prodFirstName: string,
     @Body('LastName') prodLastName: string,
     @Body('Age') prodAge: string,
-    @Body('Sex') prodSex: string
+    @Body('Sex') prodSex: string,
+    @Body('Mssv') prodMssv: string
   ) {
     const newStudent = await this.StudentService.insertStudent(
       prodFirstName,
       prodLastName,
       prodAge,
-      prodSex
+      prodSex,
+      prodMssv
     );
     return res.status(HttpStatus.OK).json({
       message: 'succes',

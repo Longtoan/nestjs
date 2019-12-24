@@ -9,12 +9,12 @@ export class ScoresService {
     @InjectModel('scores') private readonly scoresModel: Model<scoresModel>
   ) {}
   
-  async addScore(author:string,Toan: number, Ly: number, Hoa: number) {
+  async addScore(Mssv:string,Toan: number, Ly: number, Hoa: number) {
 
     var diem = (Toan + Ly + Hoa) / 3;
     
     const newScore = this.scoresModel({
-      author,
+      Mssv,
       Toan,
       Ly,
       Hoa,
@@ -24,6 +24,6 @@ export class ScoresService {
     return newScores.id as string;
   }
   GetScore() {
-    return this.scoresModel.find().populate({"path":"student","model":"student"})
+    return this.scoresModel.find().populate('student')
   }
 }

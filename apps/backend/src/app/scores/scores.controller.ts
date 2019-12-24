@@ -5,12 +5,12 @@ export class ScoresController {
   constructor(private readonly ScoresSer: ScoresService) {}
   @Post()
   async addScores(
-    @Body('author') prodA: string,
+    @Body('Mssv') prodMssv: string,
     @Body('Toan') prodToan: number,
     @Body('Ly') prodLy: number,
     @Body('Hoa') prodHoa: number
   ) {
-    const generateId = await this.ScoresSer.addScore(prodA,prodToan, prodLy, prodHoa);
+    const generateId = await this.ScoresSer.addScore(prodMssv,prodToan, prodLy, prodHoa);
     return generateId;
   }
   @Get()

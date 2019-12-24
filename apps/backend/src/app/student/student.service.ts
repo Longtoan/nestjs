@@ -14,13 +14,15 @@ export class StudentService {
     FirstName: string,
     LastName: string,
     Age: string,
-    Sex: string
+    Sex: string,
+    Mssv: string
   ) {
     const newStudent = new this.StudentModel({
       FirstName,
       LastName,
       Age,
-      Sex
+      Sex,
+      Mssv
     });
     const result = await newStudent.save();
     return result.id as string;

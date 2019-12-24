@@ -1,8 +1,6 @@
 import * as mongoose from 'mongoose';
 const schema = mongoose.Schema;
-import {scoresModel} from "../scores/scores.model";
 export const StudentSchema = new schema({
-  _id: schema.Types.ObjectId,
   FirstName: {
     type: String,
     required: true
@@ -19,7 +17,11 @@ export const StudentSchema = new schema({
     type: String,
     required: true
   },
-  // result: [{ type: schema.Types.ObjectId, ref: 'scores' }]
+  Mssv: {
+    type: String,
+    required: true
+  }
+  // result: [ref: 'scores']
 });
 
 export interface StudentSchema extends mongoose.Document {

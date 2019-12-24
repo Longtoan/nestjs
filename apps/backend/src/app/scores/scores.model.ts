@@ -2,7 +2,7 @@ import * as mongoose from 'mongoose';
 
 const schema = mongoose.Schema;
 export const scoresModel = new schema({
-  author: [{ type: schema.Types.ObjectId, ref: "student" }],
+  Mssv: { type: String, ref: 'student'},
   Toan: {
     type: Number,
     required: true
@@ -21,7 +21,6 @@ export const scoresModel = new schema({
   }
 });
 export interface scoresModel extends mongoose.Document {
-
   readonly author: String;
   readonly Toan: Number;
   readonly Ly: Number;
