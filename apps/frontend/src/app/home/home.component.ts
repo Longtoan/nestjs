@@ -1,7 +1,8 @@
+import { ViewdialogComponent } from './viewdialog/viewdialog.component';
 import { Component, OnInit } from '@angular/core';
-import { StudentService } from '../student.service';
-import { Student } from '../data/data';
-import {MatTableDataSource} from '@angular/material/table';
+import { Student } from '../interface';
+import { ConnectApiService } from '../connect-api.service';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'qlsv-home',
@@ -9,20 +10,36 @@ import {MatTableDataSource} from '@angular/material/table';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  student: Student[];
-  constructor(private studentSer: StudentService) {}
+  student;
+  formStudent: Student = null;
+  constructor(private _API: ConnectApiService, private _dialog: MatDialog) {}
 
-  displayedColumns: string[] = ['Stt', 'lastname', 'firstname', 'result'];
-  dataSource = new MatTableDataSource(this.studentSer.student);
+  displayedColumns: string[] = [
+    'firstname',
+    'lastname',
+    'age',
+    'sex',
+    'result',
+    'action'
+  ];
   
-
-  // getStudent(){
-  //   this.studentSer.getAllStudent().subscribe(d =>{
-  //     this.student=d
-  //   })
-  // }
-  ngOnInit() {
-    // this.getStudent()
+  getStudent() {
+    this._API.getStudent().subscribe(d => {
+      this.student = d;
+    });
   }
-  
+  // addStudent() {
+  //   console.log(this.formStudent)
+  //   this._API.addStudent(this.formStudent).then(d => {
+  //     return d
+  //   });
+  // }
+  openDialog(): void {
+    this._dialog.open(ViewdialogComponent, {
+      width: '300px'
+    });
+  }
+  ngOnInit() {
+    this.getStudent();
+  }
 }

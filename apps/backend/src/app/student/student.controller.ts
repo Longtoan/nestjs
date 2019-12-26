@@ -7,18 +7,18 @@ export class StudentController {
   @Post()
   async addStudent(
     @Res() res,
-    @Body('FirstName') prodFirstName: string,
-    @Body('LastName') prodLastName: string,
-    @Body('Age') prodAge: string,
-    @Body('Sex') prodSex: string,
-    @Body('Mssv') prodMssv: string
+    @Body('Firstname') dFirstname: string,
+    @Body('Lastname') dLastname: string,
+    @Body('Age') dAge: string,
+    @Body('Sex') dSex: string,
+    @Body('Result') dResult: string
   ) {
     const newStudent = await this.StudentService.insertStudent(
-      prodFirstName,
-      prodLastName,
-      prodAge,
-      prodSex,
-      prodMssv
+      dFirstname,
+      dLastname,
+      dAge,
+      dSex,
+      dResult
     );
     return res.status(HttpStatus.OK).json({
       message: 'succes',

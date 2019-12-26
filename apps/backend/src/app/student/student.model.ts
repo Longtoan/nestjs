@@ -1,11 +1,11 @@
 import * as mongoose from 'mongoose';
 const schema = mongoose.Schema;
 export const StudentSchema = new schema({
-  FirstName: {
+  Firstname: {
     type: String,
     required: true
   },
-  LastName: {
+  Lastname: {
     type: String,
     required: true
   },
@@ -17,7 +17,7 @@ export const StudentSchema = new schema({
     type: String,
     required: true
   },
-  Mssv: {
+  Result: {
     type: String,
     required: true
   }
@@ -25,8 +25,9 @@ export const StudentSchema = new schema({
 });
 
 export interface StudentSchema extends mongoose.Document {
-  readonly FirstName: String;
-  readonly LastName: String;
+  readonly Firstname: String;
+  readonly Lastname: String;
   readonly Age: String;
   readonly Sex: String;
+  readonly Result: String;
 }

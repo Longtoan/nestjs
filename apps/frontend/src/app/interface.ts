@@ -1,7 +1,8 @@
 export class Student{
-    public FirstName: string;
-    public LastName: string;
+    public Firstname: string;
+    public Lastname: string;
     public Age: string;
-    public Sex: String;
+    public Sex: string;
+    public Result:string
 }
 export const URL = 'http://localhost:3333/api'

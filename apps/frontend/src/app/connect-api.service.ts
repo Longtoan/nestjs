@@ -6,9 +6,14 @@ import {HttpClient} from '@angular/common/http'
 })
 export class ConnectApiService {
   url = URL
-  constructor(private Http : HttpClient) { }
+  constructor(private _Http : HttpClient) { }
+  
   getStudent(){
-    return this.Http.get(`${this.url}/student`);
+    return this._Http.get(`${this.url}/student`);
+  }
+
+  addStudent(id){
+    return this._Http.post(`${this.url}/student`,id,{responseType:"text"}).toPromise();
   }
   
 }

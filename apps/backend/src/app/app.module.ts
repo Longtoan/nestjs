@@ -1,4 +1,4 @@
-import { ScoresModule } from './scores/scores.module';
+// import { ScoresModule } from './scores/scores.module';
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 
@@ -9,9 +9,9 @@ import { StudentModule } from './student/student.module';
 @Module({
   imports: [
     StudentModule,
-    ScoresModule,
+    // ScoresModule,
     MongooseModule.forRoot(
-      'mongodb+srv://longtoan:01656763706@cluster0-jft4p.azure.mongodb.net/test?retryWrites=true&w=majority',
+      'mongodb://localhost:27017/NEST',
       { useNewUrlParser: true,useUnifiedTopology: true}
     )
   ],

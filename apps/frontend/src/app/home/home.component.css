@@ -1,7 +1,7 @@
 /* Structure */
 table {
-  width: 100%;
-  margin: 20px;
+  width: 85%;
+  margin: 5px;
   
 }
 
@@ -12,4 +12,14 @@ table {
 .mat-grid-list{
   margin: 10px 0 0 0;
 
+}
+.example-container {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  
+}
+
+button#green{
+  background-color: #2ecc71;
 }

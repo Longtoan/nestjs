@@ -11,26 +11,24 @@ export class StudentService {
   ) {}
 
   async insertStudent(
-    FirstName: string,
-    LastName: string,
+    Firstname: string,
+    Lastname: string,
     Age: string,
     Sex: string,
-    Mssv: string
+    Result: string
   ) {
     const newStudent = new this.StudentModel({
-      FirstName,
-      LastName,
+      Firstname,
+      Lastname,
       Age,
       Sex,
-      Mssv
+      Result
     });
     const result = await newStudent.save();
     return result.id as string;
   }
   getAllStudent() {
-    return this.StudentModel.find()
-      .populate('scores')
-      .exec();
+    return this.StudentModel.find().exec();
   }
   
 }
