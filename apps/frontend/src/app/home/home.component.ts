@@ -29,9 +29,7 @@ export class HomeComponent implements OnInit {
   }
   deleid(id){
     this._API.deleteStudent(id).subscribe(d=>{
-      if(d){
-        this.getStudent()
-      }
+      this.getStudent()
     })
   }
   openDialog(): void {

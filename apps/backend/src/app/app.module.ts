@@ -12,6 +12,7 @@ import { StudentModule } from './student/student.module';
     // ScoresModule,
     MongooseModule.forRoot(
       'mongodb://localhost:27017/NEST',
+      // 'mongodb+srv://longtoan:01656763706@cluster0-7psbe.mongodb.net/test?retryWrites=true&w=majority',
       { useNewUrlParser: true,useUnifiedTopology: true}
     )
   ],
