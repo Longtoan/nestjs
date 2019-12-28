@@ -10,7 +10,7 @@ export const StudentSchema = new schema({
     required: true
   },
   Age: {
-    type: String,
+    type: Number,
     required: true
   },
   Sex: {

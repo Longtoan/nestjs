@@ -1,26 +1,67 @@
 <div class="example-container">
   <h3>Thêm Student</h3>
-  <mat-form-field>
-    <input matInput placeholder="Firstname" [(ngModel)]="formStudent.Firstname" name="Firstname" />
-  </mat-form-field>
+  <form #form="ngForm" >
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="Firstname"
+        [ngModel]="formstudent"
+        name="Firstname"
+        required
+        type="text"
+      />
+    </mat-form-field>
 
-  <mat-form-field>
-    <input matInput placeholder="Lastname" [(ngModel)]="formStudent.Lastname" name="Lastname"/>
-  </mat-form-field>
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="Lastname"
+        [ngModel]="formstudent"
+        name="Lastname"
+        required
+        type="text"
+      />
+    </mat-form-field>
 
-  <mat-form-field>
-    <input matInput placeholder="Age" [(ngModel)]="formStudent.Age" name="Age"/>
-  </mat-form-field>
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="Age"
+        [ngModel]="formstudent"
+        name="Age"
+        required
+        type="number"
+      />
+    </mat-form-field>
 
-  <mat-form-field>
-    <input matInput placeholder="Sex" [(ngModel)]="formStudent.Sex" name="Sex"/>
-  </mat-form-field>
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="Sex"
+        [ngModel]="formstudent"
+        name="Sex"
+        required
+        type="text"
+      />
+    </mat-form-field>
 
-  <mat-form-field>
-    <input matInput placeholder="Result" [(ngModel)]="formStudent.Result" name="Result"/>
-  </mat-form-field>
-  <div class="button">
-    <button mat-raised-button color="primary" (click)="addStudent()">Add</button>
-    <button mat-raised-button color="warn" (click)="onNoClick()">Close</button>
-  </div>
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="Result"
+        [ngModel]="formstudent"
+        name="Result"
+        required
+        type="text"
+      />
+    </mat-form-field>
+    <div class="button">
+      <button mat-raised-button color="primary" (click)="addStudent()">
+        Add
+      </button>
+      <button mat-raised-button color="warn" (click)="onNoClick()">
+        Close
+      </button>
+    </div>
+  </form>
 </div>

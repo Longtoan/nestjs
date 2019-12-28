@@ -1,4 +1,4 @@
-import { Injectable, Res } from '@nestjs/common';
+import { Injectable, Res, Delete } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 
 import { Model } from 'mongoose';
@@ -13,7 +13,7 @@ export class StudentService {
   async insertStudent(
     Firstname: string,
     Lastname: string,
-    Age: string,
+    Age: number,
     Sex: string,
     Result: string
   ) {
@@ -30,6 +30,7 @@ export class StudentService {
   getAllStudent() {
     return this.StudentModel.find().exec();
   }
-  
+  async deleStudent(id:string) {
+    return await this.StudentModel.deleteOne({ _id: id }).exec();
+  }
 }
-  

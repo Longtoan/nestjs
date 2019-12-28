@@ -11,7 +11,6 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class HomeComponent implements OnInit {
   student;
-  formStudent: Student = null;
   constructor(private _API: ConnectApiService, private _dialog: MatDialog) {}
 
   displayedColumns: string[] = [
@@ -28,12 +27,13 @@ export class HomeComponent implements OnInit {
       this.student = d;
     });
   }
-  // addStudent() {
-  //   console.log(this.formStudent)
-  //   this._API.addStudent(this.formStudent).then(d => {
-  //     return d
-  //   });
-  // }
+  deleid(id){
+    this._API.deleteStudent(id).subscribe(d=>{
+      if(d){
+        this.getStudent()
+      }
+    })
+  }
   openDialog(): void {
     this._dialog.open(ViewdialogComponent, {
       width: '300px'

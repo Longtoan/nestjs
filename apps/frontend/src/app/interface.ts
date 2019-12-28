@@ -1,7 +1,7 @@
 export class Student{
     public Firstname: string;
     public Lastname: string;
-    public Age: string;
+    public Age: number;
     public Sex: string;
     public Result:string
 }
