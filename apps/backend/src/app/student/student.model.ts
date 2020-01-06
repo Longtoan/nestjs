@@ -27,7 +27,7 @@ export const StudentSchema = new schema({
 export interface StudentSchema extends mongoose.Document {
   readonly Firstname: String;
   readonly Lastname: String;
-  readonly Age: String;
+  readonly Age: number;
   readonly Sex: String;
   readonly Result: String;
 }

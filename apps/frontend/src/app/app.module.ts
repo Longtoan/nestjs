@@ -5,6 +5,10 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { ViewdialogComponent } from './home/viewdialog/viewdialog.component';
+import { ChartComponent } from './chart/chart.component';
+import { LoginComponent } from './login/login.component';
+
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './home/home.component';
@@ -19,11 +23,10 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatDialogModule} from '@angular/material/dialog';
-import { ViewdialogComponent } from './home/viewdialog/viewdialog.component';
-import { ChartComponent } from './chart/chart.component';
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent,ViewdialogComponent, ChartComponent],
+  declarations: [AppComponent, HomeComponent,ViewdialogComponent, ChartComponent, LoginComponent],
   entryComponents: [
     ViewdialogComponent
   ],
@@ -37,6 +40,7 @@ import { ChartComponent } from './chart/chart.component';
     MatInputModule, 
     MatToolbarModule,
     MatDialogModule,
+    MatCardModule,
    
 
     BrowserAnimationsModule,
@@ -44,7 +48,9 @@ import { ChartComponent } from './chart/chart.component';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    NgxChartsModule
+    NgxChartsModule,
+    //imports auth0
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

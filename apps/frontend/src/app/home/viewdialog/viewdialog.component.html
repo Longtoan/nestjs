@@ -1,14 +1,13 @@
 <div class="example-container">
   <h3>Thêm Student</h3>
-  <form #form="ngForm" >
+  <form>
     <mat-form-field>
       <input
         matInput
         placeholder="Firstname"
-        [ngModel]="formstudent"
+        [(ngModel)]="formstudent.Firstname"
         name="Firstname"
         required
-        type="text"
       />
     </mat-form-field>
 
@@ -16,10 +15,9 @@
       <input
         matInput
         placeholder="Lastname"
-        [ngModel]="formstudent"
+        [(ngModel)]="formstudent.Lastname"
         name="Lastname"
         required
-        type="text"
       />
     </mat-form-field>
 
@@ -27,10 +25,9 @@
       <input
         matInput
         placeholder="Age"
-        [ngModel]="formstudent"
+        [(ngModel)]="formstudent.Age"
         name="Age"
         required
-        type="number"
       />
     </mat-form-field>
 
@@ -38,10 +35,9 @@
       <input
         matInput
         placeholder="Sex"
-        [ngModel]="formstudent"
+        [(ngModel)]="formstudent.Sex"
         name="Sex"
         required
-        type="text"
       />
     </mat-form-field>
 
@@ -49,14 +45,17 @@
       <input
         matInput
         placeholder="Result"
-        [ngModel]="formstudent"
+        [(ngModel)]="formstudent.Result"
         name="Result"
         required
-        type="text"
       />
     </mat-form-field>
     <div class="button">
-      <button mat-raised-button color="primary" (click)="addStudent()">
+      <button
+        mat-raised-button
+        color="primary"
+        (click)="addStudent()"
+      >
         Add
       </button>
       <button mat-raised-button color="warn" (click)="onNoClick()">
