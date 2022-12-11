@@ -43,7 +43,7 @@
     "@nestjs/common": "^6.8.3",
     "@nestjs/core": "^6.8.3",
     "@nestjs/mongoose": "^6.1.2",
-    "@nestjs/platform-express": "^6.8.3",
+    "@nestjs/platform-express": "^9.2.1",
     "@nrwl/angular": "^8.9.0",
     "@swimlane/ngx-charts": "^13.0.0",
     "auth0-js": "^9.12.1",
